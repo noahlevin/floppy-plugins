@@ -1,0 +1,14 @@
+{
+  "name": "floppy",
+  "owner": { "name": "Serious People" },
+  "metadata": {
+    "description": "Floppy (Atlas) plugins for Cowork — knowledge-grounded operator workflows for Doris Dev."
+  },
+  "plugins": [
+    {
+      "name": "floppy-dd-meeting-notes",
+      "source": "./plugins/floppy-dd-meeting-notes",
+      "description": "Drop a meeting transcript, get a grounded recap email + ClickUp task list. Grounded only in Floppy memory. Bundles the Floppy remote MCP."
+    }
+  ]
+}

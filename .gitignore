@@ -1,0 +1,4 @@
+# never commit a real token
+.env
+*.token
+.DS_Store
