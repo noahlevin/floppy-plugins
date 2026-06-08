@@ -24,10 +24,16 @@ plugins/floppy-dd-meeting-notes/
 
 `.mcp.json` reads the token from the `ATLAS_AGENT_TOKEN` environment variable so no secret is committed. The token is scoped to the `tenant_doris_dev` tenant (Postgres RLS), grants `wiki:read` + `drafts:submit`, and cannot send anything externally. See `INSTALL-martina.md`.
 
+## Distribution
+
+Built artifact: **`dist/floppy-cowork-plugin-v<version>.zip`** — a clean, token-free bundle. Rebuild with `make dist` (or `./build-dist.sh`); the build refuses to package if a literal `Bearer atlas_…` token is present in the tree. Hand the zip to the operator and follow `INSTALL-martina.md`.
+
 ## Status
 
 - Engine verified end-to-end against the live endpoint (atlas_brief on a real Croceum transcript: grounded, cited, `fallback:false`).
+- MCP endpoint liveness re-confirmed 2026-06-08 (`POST /api/mcp` → 401 auth gate live).
 - Plugin structure validated in Claude Code.
+- Packaged as an installable zip (`dist/`).
 - The one thing to confirm with the operator's actual Cowork: that Cowork's plugin loader honors the bundled bearer header (Claude Code does). Fallback path documented in `INSTALL-martina.md`.
 
 Home for permanence: promote into the `bart` repo under SP-180 ("Ship Floppy as a plugin").
