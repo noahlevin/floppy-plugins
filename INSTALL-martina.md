@@ -19,14 +19,16 @@ Cowork → **Connectors** → **ClickUp** → Connect → authorize her workspac
 
 ## 2. Install the Floppy plugin
 
-Two ways, pick one:
-
-**A. From the packaged zip (simplest for guided setup)**
-1. Hand her the built artifact: **`dist/floppy-cowork-plugin-v0.1.0.zip`** (in this repo). It's a clean, token-free bundle — she unzips it anywhere to get the `floppy-cowork-plugin/` folder.
-2. In Cowork: add it as a plugin / marketplace (`/plugin marketplace add <path-to-unzipped-folder>` → `/plugin install floppy-dd-meeting-notes@floppy`).
+**A. From the hosted marketplace (default — no files to email)**
+1. In Cowork: `/plugin marketplace add noahlevin/floppy-plugins`
+2. `/plugin install floppy-dd-meeting-notes@floppy`
 3. Provide the token: set `ATLAS_AGENT_TOKEN` to the Doris Dev bearer. If Cowork doesn't expose env vars to her, edit the installed copy's `.mcp.json` and replace `${ATLAS_AGENT_TOKEN}` with the literal `Bearer atlas_…` value (one line).
 
-**B. Publish the plugin** to a Floppy marketplace she can install from (productized path — SP-180).
+That's it — self-serve, nothing handed over but the token. The marketplace lives at <https://github.com/noahlevin/floppy-plugins>.
+
+**B. Offline fallback (only if she can't reach the repo).** Hand her the built zip **`dist/floppy-cowork-plugin-v0.1.0.zip`** (token-free), she unzips it, then `/plugin marketplace add <path-to-unzipped-folder>` → `/plugin install floppy-dd-meeting-notes@floppy`.
+
+> The real end state (SP-195): OAuth on the Floppy MCP makes this a **native one-click Cowork connector** — no plugin, no token, no marketplace step.
 
 After install, confirm the `atlas` MCP shows connected and `atlas_*` tools are available.
 
