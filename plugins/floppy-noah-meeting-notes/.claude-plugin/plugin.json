@@ -1,0 +1,7 @@
+{
+  "name": "floppy-noah-meeting-notes",
+  "version": "0.1.0",
+  "description": "Floppy → Noah meeting notes. Drop a meeting transcript (paste or upload) and get a grounded recap + a Todoist task list, grounded ONLY in Floppy memory for the serious-people tenant. Bundles the Floppy remote MCP; Todoist writes go via REST with idempotent dedup.",
+  "author": { "name": "Serious People", "url": "https://hellofloppy.com" },
+  "keywords": ["floppy", "atlas", "serious-people", "meeting-notes", "todoist", "recap", "grounding"]
+}
