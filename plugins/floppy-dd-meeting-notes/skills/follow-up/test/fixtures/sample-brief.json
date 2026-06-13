@@ -1,0 +1,84 @@
+{
+  "hydrated": [
+    {
+      "entityId": "person_jordan_rivera",
+      "displayName": "Jordan Rivera",
+      "profileKind": "person",
+      "summary": "Jordan Rivera is the VP of Product at Acme, the primary stakeholder on the diligence engagement.",
+      "facts": [
+        {
+          "assertionId": "assertion_jordan_role",
+          "assertionType": "role",
+          "predicate": "holds_role",
+          "status": "active",
+          "confidence": 0.92,
+          "observedAt": "2026-05-20T15:00:00.000Z",
+          "sourceArtifactIds": ["source_artifact_kickoff"],
+          "sourceSegmentIds": [],
+          "summary": "Jordan owns the product roadmap and signs off on the integration milestones."
+        }
+      ],
+      "openCommitments": [
+        {
+          "assertionId": "assertion_commit_data_export",
+          "entityId": "person_jordan_rivera",
+          "entityDisplayName": "Jordan Rivera",
+          "summary": "Jordan to share the data-export requirements doc by June 12.",
+          "observedAt": "2026-05-28T17:35:00.000Z",
+          "status": "open",
+          "confidence": 0.78,
+          "sourceArtifactIds": ["source_artifact_weekly"],
+          "sourceSegmentIds": []
+        },
+        {
+          "assertionId": "assertion_commit_intro_security",
+          "entityId": "person_jordan_rivera",
+          "entityDisplayName": "Jordan Rivera",
+          "summary": "Noah to send the security questionnaire follow-up after the weekly sync.",
+          "observedAt": "2026-05-28T17:40:00.000Z",
+          "status": "open",
+          "confidence": 0.71,
+          "sourceArtifactIds": ["source_artifact_weekly"],
+          "sourceSegmentIds": []
+        }
+      ],
+      "recentChanges": {
+        "entityId": "person_jordan_rivera",
+        "since": "2026-05-01T00:00:00.000Z",
+        "events": [
+          {
+            "kind": "source_artifact",
+            "id": "source_artifact_weekly",
+            "title": "Acme weekly sync — May 28",
+            "sourceType": "meeting_transcript",
+            "sourceSystem": "granola",
+            "occurredAt": "2026-05-28T17:00:00.000Z",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "citations": {
+        "assertionIds": [
+          "assertion_jordan_role",
+          "assertion_commit_data_export",
+          "assertion_commit_intro_security"
+        ],
+        "sourceArtifactIds": ["source_artifact_kickoff", "source_artifact_weekly"]
+      }
+    }
+  ],
+  "index": [
+    {
+      "entityId": "project_acme_integration",
+      "displayName": "Acme Integration",
+      "hook": "Active diligence project Jordan sponsors"
+    }
+  ],
+  "suggestions": [],
+  "meta": {
+    "model": "fixture",
+    "fallback": true,
+    "resolvedEntityIds": ["person_jordan_rivera"],
+    "tookMs": 12
+  }
+}

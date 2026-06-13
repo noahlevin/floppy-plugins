@@ -1,7 +1,14 @@
 {
   "name": "floppy-dd-meeting-notes",
-  "version": "0.1.0",
-  "description": "Floppy → Doris Dev meeting notes. Drop a meeting transcript (paste or upload) and get a grounded recap email + a ClickUp task list, grounded ONLY in Floppy memory. Bundles the Floppy remote MCP; ClickUp is a Cowork connector.",
-  "author": { "name": "Serious People", "url": "https://hellofloppy.com" },
-  "keywords": ["floppy", "atlas", "doris-dev", "meeting-notes", "clickup", "recap", "grounding"]
+  "version": "0.2.2",
+  "description": "Floppy meeting notes, Floppy memory search, and review-required draft workflows.",
+  "author": {
+    "name": "Serious People"
+  },
+  "homepage": "https://bart-silk.vercel.app",
+  "skills": "./skills/",
+  "commands": [
+    "./commands/floppy-capture-session.md"
+  ],
+  "mcpServers": "./.mcp.json"
 }

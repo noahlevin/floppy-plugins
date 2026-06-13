@@ -1,0 +1,35 @@
+{
+  "title": "Croceum DD Weekly Check-In",
+  "occurredAt": "2026-05-28T15:00:00.000Z",
+  "participants": [
+    {
+      "name": "Eric Ip",
+      "email": "eric@example.com"
+    },
+    {
+      "name": "Joyce Huang",
+      "email": "joyce@example.com"
+    },
+    {
+      "name": "Alex Fedorchenko"
+    }
+  ],
+  "segments": [
+    {
+      "speaker": "Eric Ip",
+      "text": "Croceum wants the recap and outstanding demo tasks in one place."
+    },
+    {
+      "speaker": "Eric Ip",
+      "text": "We should keep the ClickUp list focused on follow-ups from Atlas memory."
+    },
+    {
+      "speaker": "Joyce Huang",
+      "text": "I will review the procurement notes by Friday."
+    },
+    {
+      "speaker": "Alex Fedorchenko",
+      "text": "The analytics export is still the biggest dependency."
+    }
+  ]
+}

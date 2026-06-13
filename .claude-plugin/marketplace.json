@@ -8,7 +8,8 @@
     {
       "name": "floppy-dd-meeting-notes",
       "source": "./plugins/floppy-dd-meeting-notes",
-      "description": "Drop a meeting transcript, get a grounded recap email + ClickUp task list. Grounded only in Floppy memory. Bundles the Floppy remote MCP."
+      "version": "0.2.2",
+      "description": "Floppy meeting notes, memory search, and review-required draft workflows. Includes session capture hooks and 6 skills (meeting-notes, brief, digest, follow-up, agenda, proposal)."
     },
     {
       "name": "floppy-noah-meeting-notes",

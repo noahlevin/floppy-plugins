@@ -1,0 +1,105 @@
+{
+  "hydrated": [
+    {
+      "entityId": "person_jordan_rivera",
+      "displayName": "Jordan Rivera",
+      "profileKind": "person",
+      "summary": "Jordan Rivera is the VP of Product at Acme, the primary stakeholder on the diligence engagement.",
+      "facts": [
+        {
+          "assertionId": "assertion_jordan_role",
+          "assertionType": "role",
+          "predicate": "holds_role",
+          "status": "active",
+          "confidence": 0.92,
+          "observedAt": "2026-05-20T15:00:00.000Z",
+          "sourceArtifactIds": ["source_artifact_kickoff"],
+          "sourceSegmentIds": [],
+          "summary": "Jordan owns the product roadmap and signs off on the integration milestones."
+        }
+      ],
+      "openCommitments": [
+        {
+          "assertionId": "assertion_commit_data_export",
+          "entityId": "person_jordan_rivera",
+          "entityDisplayName": "Jordan Rivera",
+          "summary": "Jordan to share the data-export requirements doc by June 12.",
+          "observedAt": "2026-05-28T17:35:00.000Z",
+          "status": "open",
+          "confidence": 0.78,
+          "sourceArtifactIds": ["source_artifact_weekly"],
+          "sourceSegmentIds": []
+        }
+      ],
+      "recentChanges": {
+        "entityId": "person_jordan_rivera",
+        "since": "2026-05-25T00:00:00.000Z",
+        "events": [
+          {
+            "kind": "assertion",
+            "id": "assertion_jordan_priority",
+            "predicate": "prioritizes",
+            "assertionType": "priority",
+            "status": "active",
+            "confidence": 0.81,
+            "observedAt": "2026-05-28T17:30:00.000Z",
+            "sourceArtifactIds": ["source_artifact_weekly"],
+            "sourceSegmentIds": [],
+            "summary": "Current priority is reducing onboarding time for enterprise customers."
+          },
+          {
+            "kind": "source_artifact",
+            "id": "source_artifact_weekly",
+            "title": "Acme weekly sync — May 28",
+            "sourceType": "meeting_transcript",
+            "sourceSystem": "granola",
+            "occurredAt": "2026-05-28T17:00:00.000Z",
+            "confidence": 0.95
+          },
+          {
+            "kind": "assertion",
+            "id": "assertion_jordan_budget",
+            "predicate": "approved_budget",
+            "assertionType": "decision",
+            "status": "active",
+            "confidence": 0.88,
+            "observedAt": "2026-05-30T12:00:00.000Z",
+            "sourceArtifactIds": ["source_artifact_budget_email"],
+            "sourceSegmentIds": [],
+            "summary": "Jordan approved the integration phase-2 budget."
+          }
+        ]
+      },
+      "citations": {
+        "assertionIds": [
+          "assertion_jordan_role",
+          "assertion_jordan_priority",
+          "assertion_jordan_budget",
+          "assertion_commit_data_export"
+        ],
+        "sourceArtifactIds": ["source_artifact_kickoff", "source_artifact_weekly"]
+      }
+    }
+  ],
+  "index": [
+    {
+      "entityId": "project_acme_integration",
+      "displayName": "Acme Integration",
+      "hook": "Active diligence project Jordan sponsors"
+    }
+  ],
+  "suggestions": [
+    {
+      "kind": "entity",
+      "ref": "project_acme_integration",
+      "label": "Acme Integration project",
+      "why": "Jordan is the executive sponsor; overlaps with the onboarding work."
+    }
+  ],
+  "meta": {
+    "model": "fixture",
+    "fallback": true,
+    "resolvedEntityIds": ["person_jordan_rivera"],
+    "tookMs": 12
+  }
+}
