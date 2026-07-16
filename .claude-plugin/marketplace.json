@@ -1,10 +1,18 @@
 {
   "name": "floppy",
-  "owner": { "name": "Serious People" },
+  "owner": {
+    "name": "Serious People"
+  },
   "metadata": {
     "description": "Floppy (Atlas) plugins for Cowork — knowledge-grounded operator workflows."
   },
   "plugins": [
+    {
+      "name": "floppy",
+      "source": "./plugins/floppy",
+      "version": "0.1.0",
+      "description": "Generic Floppy plugin: grounded read/write over your business memory via the remote Floppy MCP, plus automatic source-evidence capture of agent sessions. No client-specific meeting workflows."
+    },
     {
       "name": "floppy-dd-meeting-notes",
       "source": "./plugins/floppy-dd-meeting-notes",
