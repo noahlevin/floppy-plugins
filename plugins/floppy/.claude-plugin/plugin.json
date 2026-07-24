@@ -1,0 +1,12 @@
+{
+  "name": "floppy",
+  "version": "0.1.0",
+  "description": "Connect Claude / Cowork / Claude Code to Floppy: grounded read/write over your business memory plus automatic source-evidence capture of your agent sessions. Generic — no client-specific meeting workflows.",
+  "author": { "name": "Serious People", "url": "https://hellofloppy.com" },
+  "homepage": "https://hellofloppy.com",
+  "keywords": ["floppy", "memory", "grounding", "mcp", "source-evidence", "session-capture"],
+  "commands": [
+    "./commands/floppy-capture-session.md"
+  ],
+  "mcpServers": "./.mcp.json"
+}
