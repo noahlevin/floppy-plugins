@@ -8,10 +8,12 @@ import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 import {
+  DEFAULT_MCP_URL,
   agentImportEndpoint,
   isAutomationSession,
   parseClaudeCodeJsonl,
   redactLocalSessionText,
+  resolveAgentEndpoint,
 } from "../lib/capture.mjs";
 
 const captureScriptPath = fileURLToPath(
@@ -23,6 +25,37 @@ const fakeOpenAiToken = ["sk", "y".repeat(32)].join("-");
 const fakeGithubToken = ["ghp", "z".repeat(24)].join("_");
 const fakeAwsAccessKey = ["AK", "IA", "A".repeat(16)].join("");
 const fakeBearerToken = `${["Bear", "er"].join("")} ${"b".repeat(24)}`;
+
+test("resolveAgentEndpoint falls back to the bundled default with token-only env", () => {
+  assert.equal(
+    resolveAgentEndpoint({}),
+    "https://bart-silk.vercel.app/api/v1/agent",
+  );
+});
+
+test("DEFAULT_MCP_URL matches the bundled .mcp.json server URL", async () => {
+  const mcpConfig = JSON.parse(
+    await (await import("node:fs/promises")).readFile(
+      new URL("../../.mcp.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  assert.equal(mcpConfig.mcpServers.atlas.url, DEFAULT_MCP_URL);
+});
+
+test("resolveAgentEndpoint honors an explicit ATLAS_MCP_URL over the default", () => {
+  assert.equal(
+    resolveAgentEndpoint({ ATLAS_MCP_URL: "https://other.example/api/mcp" }),
+    "https://other.example/api/v1/agent",
+  );
+});
+
+test("resolveAgentEndpoint does NOT fall back when ATLAS_MCP_URL is set but underivable", () => {
+  assert.equal(
+    resolveAgentEndpoint({ ATLAS_MCP_URL: "https://other.example/api/rpc" }),
+    undefined,
+  );
+});
 
 test("agentImportEndpoint appends the import path after /v1/agent", () => {
   const endpoint = agentImportEndpoint("https://atlas.example/v1/agent");
