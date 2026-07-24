@@ -30,9 +30,11 @@ plugins/floppy/
   protected-resource metadata and returns the correct `WWW-Authenticate`
   challenge). The bundled `.mcp.json` bearer is the fallback.
 - **Claude Code CLI:** copy-paste simple — set `ATLAS_AGENT_TOKEN` (a
-  tenant-scoped Floppy agent token) in your environment and the bundled
-  `.mcp.json` authenticates directly. `ATLAS_MCP_URL` is optional and overrides
-  the default endpoint.
+  tenant-scoped Floppy agent token) in your environment. That single variable
+  enables both halves: the bundled `.mcp.json` authenticates MCP reads/writes,
+  and session capture posts to the same default deployment. `ATLAS_MCP_URL` is
+  optional and overrides the default endpoint for both; `ATLAS_AGENT_ENDPOINT`
+  overrides the capture upload endpoint alone.
 
 ## Session capture (source evidence)
 
@@ -42,6 +44,10 @@ transcript and POSTs it to Floppy's coding-agent-session import
 tenant-scoped **source artifacts / source segments** — not as expanded
 telemetry. Duplicate/retried turns are idempotent (no duplicate artifacts or
 processing workflows). Run `/floppy-capture-session` to capture on demand.
+
+Capture is **on by default** whenever `ATLAS_AGENT_TOKEN` is set — that is the
+plugin's headline behavior. To keep MCP access but turn session capture off,
+set `FLOPPY_CAPTURE=0`. Automation/scheduled-task sessions are never captured.
 
 The hook never fails the host session: all diagnostics go to
 `${FLOPPY_CAPTURE_LOG:-$TMPDIR/floppy-capture.log}`.

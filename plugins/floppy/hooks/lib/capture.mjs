@@ -19,6 +19,10 @@ export const IMPORT_PATH = "/v1/source-artifacts/imports/coding-agent-session";
 export const AGENT_RELATIVE_IMPORT_PATH =
   "/source-artifacts/imports/coding-agent-session";
 
+// Must match the bundled .mcp.json server URL so a token-only install
+// captures sessions against the same deployment it reads from.
+export const DEFAULT_MCP_URL = "https://bart-silk.vercel.app/api/mcp";
+
 export class CodingAgentLocalSessionParseError extends Error {
   constructor(message) {
     super(message);
@@ -70,9 +74,16 @@ export const deriveAgentEndpointFromMcpUrl = (rawMcpUrl) => {
   return url.toString();
 };
 
-export const resolveAgentEndpoint = (env = process.env) =>
-  stringValue(env.ATLAS_AGENT_ENDPOINT) ??
-  deriveAgentEndpointFromMcpUrl(env.ATLAS_MCP_URL);
+export const resolveAgentEndpoint = (env = process.env) => {
+  const explicit = stringValue(env.ATLAS_AGENT_ENDPOINT);
+  if (explicit !== undefined) return explicit;
+  // An ATLAS_MCP_URL the user set but that cannot be derived must NOT fall
+  // back to the default: their reads point elsewhere, so silently uploading
+  // to the default deployment would be wrong. Skip capture instead.
+  const mcpUrl = stringValue(env.ATLAS_MCP_URL);
+  if (mcpUrl !== undefined) return deriveAgentEndpointFromMcpUrl(mcpUrl);
+  return deriveAgentEndpointFromMcpUrl(DEFAULT_MCP_URL);
+};
 
 export const agentImportEndpoint = (rawEndpoint) => {
   let url;
